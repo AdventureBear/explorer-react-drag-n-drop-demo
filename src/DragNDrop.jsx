@@ -73,47 +73,49 @@ export default function DragAndDropTemplate() {
 
 
     return (
-        <div className="container mx-auto p-4 space-y-8">
+        <div className="container mx-auto p-4 space-y-8 ">
             {/* Section 1: Reordering list */}
             <section>
-                <h2 className="text-2xl font-bold mb-4">Section 1: Reordering List</h2>
-                <div className="space-y-2">
-                    {items
-                        .sort((a, b) => a.rank - b.rank)
-                        .map((item, index) => (
-                            <div
-                                key={item.rank}
-                                draggable={true}
-                                onDragStart={(e) => handleDragStart(e, item)}
-                                onDragOver={handleDragOver}
-                                onDrop={(e) => handleDrop(e)}
-                                className="p-4 bg-white rounded-lg shadow cursor-move"
-                            >
-                                {`${item.title} Rank: ${item.rank}`}
-                            </div>
-                        ))}
-                </div>
-                <div
-                    className="drop-zone space-y-2"
-                    onDragOver={handleDragOver}
-                    // onDragEnter={handleDragEnter}
-                    onDrop={(e) => handleDrop(e)}
-                >
-                    <h2>Drop Zone</h2>
-                    {targetItems
-                        .sort((a, b) => a.rank - b.rank)
-                        .map((item, index) => (
-                            <div
-                                key={item.rank}
-                                draggable={true}
-                                onDragStart={(e) => handleDragStart(e, item)}
-                                onDragOver={handleDragOver}
-                                onDrop={(e) => handleDrop(e)}
-                                className="p-4 bg-white rounded-lg shadow cursor-move"
-                            >
-                                {`${item.title} Rank: ${item.rank}`}
-                            </div>
-                        ))}
+                <h2 className="flex text-2xl font-bold mb-4">Section 1: Reordering List</h2>
+                <div className="flex space-x-4">
+                    <div className=" space-y-2 w-1/2 p-4 bg-gray-100 rounded-lg min-h-[600px]">
+                        <h3 className="text-lg font-semibold mb-2">Source</h3>
+                        {items
+                            .sort((a, b) => a.rank - b.rank)
+                            .map((item, index) => (
+                                <div
+                                    key={item.rank}
+                                    draggable={true}
+                                    onDragStart={(e) => handleDragStart(e, item)}
+                                    onDragOver={handleDragOver}
+                                    onDrop={(e) => handleDrop(e)}
+                                    className="p-4 bg-white rounded-lg shadow cursor-move"
+                                >
+                                    {`${item.title} Rank: ${item.rank}`}
+                                </div>
+                            ))}
+                    </div>
+                    <div
+                        className="space-y-2 w-1/2 p-4 bg-gray-100 rounded-lg  min-h-[600px]"
+                        onDragOver={handleDragOver}
+                        // onDragEnter={handleDragEnter}
+                        onDrop={(e) => handleDrop(e)}
+                    ><h3 className="text-lg font-semibold mb-2">Drop</h3>
+                        {targetItems
+                            .sort((a, b) => a.rank - b.rank)
+                            .map((item, index) => (
+                                <div
+                                    key={item.rank}
+                                    draggable={true}
+                                    onDragStart={(e) => handleDragStart(e, item)}
+                                    onDragOver={handleDragOver}
+                                    onDrop={(e) => handleDrop(e)}
+                                    className="p-4 bg-white rounded-lg shadow cursor-move"
+                                >
+                                    {`${item.title} Rank: ${item.rank}`}
+                                </div>
+                            ))}
+                    </div>
                 </div>
             </section>
 
