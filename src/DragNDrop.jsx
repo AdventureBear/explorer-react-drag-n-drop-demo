@@ -1,8 +1,6 @@
 import React, { useState } from 'react'
 import './DragNDrop.css'
 
-
-
 // Section 1: Reordering list state
 const freshItems = [
     {id: 1, title: 'Steelers', rank: 5},
